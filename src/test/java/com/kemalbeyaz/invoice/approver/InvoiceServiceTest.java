@@ -69,7 +69,7 @@ class InvoiceServiceTest {
         IllegalArgumentException throwException = assertThrows(IllegalArgumentException.class,
                 () -> getInvoiceService().save(invoice));
 
-        assertEquals("Fatura limiti aşıldığı için onaylanmadı!", throwException.getMessage());
+        assertEquals(InvoiceService.LIMIT_EXCEEDED_MSG, throwException.getMessage());
     }
 
     @Test

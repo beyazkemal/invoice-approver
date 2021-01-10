@@ -16,6 +16,8 @@ import java.util.Optional;
 @Service
 public class InvoiceService {
 
+    public static final String LIMIT_EXCEEDED_MSG = "Fatura limiti aşıldığı için onaylanmadı!";
+
     @Value("${purchasing.specialist.limit}")
     private double purchasingSpecialistLimit;
 
@@ -47,7 +49,7 @@ public class InvoiceService {
 
         // limit aşılmış, kaydedilip hata fırlatılıyor.
         invoiceRepository.save(invoice);
-        throw new IllegalArgumentException("Fatura limiti aşıldığı için onaylanmadı!");
+        throw new IllegalArgumentException(LIMIT_EXCEEDED_MSG);
     }
 
     /**
