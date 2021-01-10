@@ -12,13 +12,21 @@ Derlendikten sonra şu şekilde çalıştırılabilir: <br>
 Yada Spring Boot plugini kullanılarak Uygulama ayağa kaldırılabilir: <br>
 `mvn spring-boot:run`
 
+## Dockerize Et
+
+Derledikten sonra pom.xml'in olduğu kalsörde şu komut çalıştırılabilir: <br>
+`docker build . -t invoice-approver:v.0.0.1`
+
+### Ve Çalıştır
+
+`docker run -d -p 8080:8080 invoice-approver:v.0.0.1`
+
 ## Test Et
 
-Uygulama göümülü olarak H2 veritabanı ile ayağa kalkar ve 8080 portundan yayın yapmaya başlar.<br><br>
+Uygulama gömülü olarak H2 veritabanı ile ayağa kalkar ve 8080 portundan yayın yapmaya başlar.<br><br>
 Yeni bir fatura ekle: <br>
 `curl --location --request POST 'http://localhost:8080/invoice'
---header 'Content-Type: application/json'
---data-raw '{
+--header 'Content-Type: application/json' --data-raw '{
 "purchasingSpecialist": {
 "firstName": "John",
 "lastName": "Doe",
