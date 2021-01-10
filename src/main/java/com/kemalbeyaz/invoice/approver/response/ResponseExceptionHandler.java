@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice()
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private static final String ERROR_MESSAGE = "Hata!";
+    private static final String ERROR_MESSAGE = "Hatalı!";
 
     @ExceptionHandler(value = RuntimeException.class)
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {

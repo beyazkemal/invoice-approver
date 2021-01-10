@@ -8,15 +8,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseWrapper {
 
-    private final String message;
+    private final String status;
     private final String detail;
     private final Object data;
 
     /**
      * Hatalı cevap için constructor.
      */
-    public ResponseWrapper(String message, String detail) {
-        this.message = message;
+    public ResponseWrapper(String status, String detail) {
+        this.status = status;
         this.detail = detail;
         this.data = null;
     }
@@ -24,14 +24,14 @@ public class ResponseWrapper {
     /**
      * Başarılı cevap için constructor.
      */
-    public ResponseWrapper(String message, Object data) {
-        this.message = message;
+    public ResponseWrapper(String status, Object data) {
+        this.status = status;
         this.detail = null;
         this.data = data;
     }
 
-    public String getMessage() {
-        return message;
+    public String getStatus() {
+        return status;
     }
 
     public String getDetail() {

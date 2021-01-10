@@ -58,7 +58,7 @@ public class InvoiceController {
 
         String collectedErrors = bindingResult.getAllErrors().stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
-                .collect(Collectors.joining(","));
+                .collect(Collectors.joining("; "));
         throw new IllegalArgumentException(collectedErrors);
     }
 }
